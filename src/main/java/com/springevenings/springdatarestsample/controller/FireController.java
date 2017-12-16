@@ -1,5 +1,6 @@
 package com.springevenings.springdatarestsample.controller;
 
+import com.springevenings.springdatarestsample.controller.exception.EmployeeNotFromThisCompanyException;
 import com.springevenings.springdatarestsample.entity.Company;
 import com.springevenings.springdatarestsample.entity.Employee;
 import com.springevenings.springdatarestsample.service.CompanyService;
@@ -24,8 +25,7 @@ public class FireController {
         Employee employee = employeeService.read(id);
 
         if (!company.equals(employee.getCompany())) {
-            // TODO throw some exception, that this employee is not from this company
-            throw new IllegalArgumentException(employee.getName() + " " + employee.getSurname()
+            throw new EmployeeNotFromThisCompanyException(employee.getName() + " " + employee.getSurname()
                     + " is not from company " + company.getName());
         }
 

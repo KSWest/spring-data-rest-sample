@@ -15,7 +15,7 @@ public class EmployeeService {
         Employee employee = employeeRepository.findOne(id);
 
         if (employee == null) {
-            throw new ResourceNotFoundException();
+            throw new ResourceNotFoundException();  // should be from org.springframework.data.rest.webmvc package
         }
 
         return employee;
@@ -25,7 +25,7 @@ public class EmployeeService {
         Iterable<Employee> allEmployees = employeeRepository.findAll();
 
         if (allEmployees.spliterator().getExactSizeIfKnown() == 0) {
-            throw new ResourceNotFoundException();
+            throw new ResourceNotFoundException();  // should be from org.springframework.data.rest.webmvc package
         }
 
         return allEmployees;

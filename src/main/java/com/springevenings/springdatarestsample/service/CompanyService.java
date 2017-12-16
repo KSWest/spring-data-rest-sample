@@ -15,7 +15,7 @@ public class CompanyService {
         Company company = companyRepository.findOne(id);
 
         if (company == null) {
-            throw new ResourceNotFoundException();
+            throw new ResourceNotFoundException();  // should be from org.springframework.data.rest.webmvc package
         }
 
         return company;
@@ -25,7 +25,7 @@ public class CompanyService {
         Iterable<Company> allCompanies = companyRepository.findAll();
 
         if (allCompanies.spliterator().getExactSizeIfKnown() == 0) {
-            throw new ResourceNotFoundException();
+            throw new ResourceNotFoundException();  // should be from org.springframework.data.rest.webmvc package
         }
 
         return allCompanies;

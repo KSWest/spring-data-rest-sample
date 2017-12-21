@@ -1,0 +1,7 @@
+Add Spring Security:
+
+- visitor
+- admin
+- manager
+
+Secure some methods: allow access only for some roles.

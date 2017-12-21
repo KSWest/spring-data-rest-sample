@@ -31,14 +31,6 @@ public class EmployeeService {
         return allEmployees;
     }
 
-    public Employee update(Employee employee) {
-        return employeeRepository.save(employee);
-    }
-
-    public void delete(Employee employee) {
-        employeeRepository.delete(employee);
-    }
-
     @Autowired
     public void setEmployeeRepository(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;

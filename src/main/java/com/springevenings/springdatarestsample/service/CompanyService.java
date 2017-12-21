@@ -31,14 +31,6 @@ public class CompanyService {
         return allCompanies;
     }
 
-    public Company update(Company company) {
-        return companyRepository.save(company);
-    }
-
-    public void delete(Company company) {
-        companyRepository.delete(company);
-    }
-
     @Autowired
     public void setCompanyRepository(CompanyRepository companyRepository) {
         this.companyRepository = companyRepository;

@@ -2,6 +2,7 @@ package com.springevenings.springdatarestsample.controller;
 
 import com.springevenings.springdatarestsample.entity.Company;
 import com.springevenings.springdatarestsample.entity.Employee;
+import com.springevenings.springdatarestsample.repository.EmployeeRepository;
 import com.springevenings.springdatarestsample.service.CompanyService;
 import com.springevenings.springdatarestsample.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/companies")
 public class HireController {
 
+    private EmployeeRepository employeeRepository;
     private EmployeeService employeeService;
     private CompanyService companyService;
 
@@ -24,7 +26,7 @@ public class HireController {
         Employee employee = employeeService.read(id);
 
         employee.setCompany(company);
-        employeeService.update(employee);
+        employeeRepository.save(employee);
 
         return ResponseEntity.ok(employee.getName() + " " + employee.getSurname() + " has been hired to " +
             company.getName());
@@ -38,5 +40,10 @@ public class HireController {
     @Autowired
     public void setCompanyService(CompanyService companyService) {
         this.companyService = companyService;
+    }
+
+    @Autowired
+    public void setEmployeeRepository(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
     }
 }

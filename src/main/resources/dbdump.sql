@@ -80,3 +80,15 @@ UNLOCK TABLES;
 
 -- Dump completed on 2017-12-16  2:05:44
 
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+  id INT NOT NULL AUTO_INCREMENT,
+  username varchar(30) NOT NULL,
+  password varchar(255) NOT NULL,
+  role varchar(30) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO users (username, password, role)
+VALUES ("admin", "admin", "ROLE_ADMIN"), ("manager", "manager", "ROLE_MANAGER"), ("visitor", "visitor", "ROLE_VISITOR");
+
